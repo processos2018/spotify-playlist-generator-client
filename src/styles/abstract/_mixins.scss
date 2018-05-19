@@ -1,0 +1,37 @@
+/*
+  Este mixin deve ser usado para a inserção de
+  web fontes ao projeto
+  or object-fit and object-position:
+  @include webfont('Dosis', 'dosis', 'italic', 600);
+*/
+@mixin webfont($FontName, $FontPath, $FontType, $fontWeight:400) {
+  @font-face {
+    font-family: $FontName;
+    font-style: normal;
+    font-weight: $fontWeight;
+    src:  local($FontName);
+    src:  url('~assets/fonts/#{$FontPath}/#{$FontName}-#{$FontType}.eot?v=#{$FontType}');
+    src:  url('~assets/fonts/#{$FontPath}/#{$FontName}-#{$FontType}.eot?#iefix&v=#{$FontType}') format('embedded-opentype'),
+          url('~assets/fonts/#{$FontPath}/#{$FontName}-#{$FontType}.woff?v=#{$FontType}') format('woff'),
+          url('~assets/fonts/#{$FontPath}/#{$FontName}-#{$FontType}.ttf?v=#{$FontType}') format('truetype'),
+          url('~assets/fonts/#{$FontPath}/#{$FontName}-#{$FontType}.svg') format('svg');
+  }
+}
+
+/*
+  Este mixin pode ser usado para setar o object-fit:
+  @include objectFit(contain);
+  Ou o object-fit e o object-position:
+  @include objectFit(cover, top);
+*/
+@mixin objectFit($fit: fill, $position: null){
+  -o-object-fit: $fit;
+     object-fit: $fit;
+  @if $position {
+    -o-object-position: $position;
+       object-position: $position;
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+  } @else {
+    font-family: 'object-fit: #{$fit}';
+  }
+}
