@@ -1,6 +1,7 @@
 <template lang="pug">
-.container
+section#home
   h1 Spotify Playlist Generator
+  router-link(:to="{ name: 'playlists' }") /playlists
 </template>
 
 <script>
