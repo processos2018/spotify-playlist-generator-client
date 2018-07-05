@@ -6,18 +6,11 @@ $breakpoints: (
   'desktop': 992px
 );
 
-// TODO:
-// Paleta de Cores
-// $cor-branco: #ffffff;
-// $cor-preto: #000000;
-// $cor-azul-claro: #2E4772;
-// $cor-vermelho-claro: #FF0000;
-
-// TODO:
-// Definição das Cores do Site
-// $cor-neutra: $;
-// $cor-primaria: $;
-// $cor-secundaria: $;
+$white: rgb(255, 255, 255);
+$sand: rgb(236, 235, 232);
+$gray: rgb( 130, 130, 130);
+$black: rgb(0, 0, 0);
+$yellow: rgb(255, 211, 0);
 
 // TODO:
 // Variáveis de Padrões

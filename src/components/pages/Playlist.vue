@@ -31,7 +31,9 @@ export default {
   },
   mounted() {
     let name = this.$route.params.name
-    axios.get('/static/'+name+'.json')
+    let url = 'http://fabrica-de-playlists-service.herokuapp.com/recommendation?'
+    let params = "genre=classical&name=testando-classica"
+    axios.get(url+params)
       .then( response => response.data )
       .then( playlist => this.playlist = playlist )
       .then( playlist => console.log(playlist))

@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     { path: '/', name: 'index', component: Index },
     { path: '/playlists', name: 'playlists', component: Playlists },
-    { path: '/playlist/:name', name: 'playlist', component: Playlist },
+    { path: '/playlist', name: 'playlist', component: Playlist },
     { path: '/customizer', name: 'customizer', component: Customizer },
   ]
 })
