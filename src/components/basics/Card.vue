@@ -6,17 +6,24 @@
     .title {{title}}
   .details(v-show="isSelected && isActive")
     .subtitle Baseie sua playlist em artistas ou músicas
-    .desc #[i.fas(class="fa-plus")] Escolher música
-    .desc #[i.fas(class="fa-plus")] Escolher artista
+    button.option(@click="chooseSong") #[i.fas(class="fa-plus")] Escolher música
+    button.option(@click="chooseArtist") #[i.fas(class="fa-plus")] Escolher artista
+  modal-choice(v-if="isModalOpen", :option="modalOption")
 </template>
 
 <script>
+import ModalChoice from 'BASICS/ModalChoice'
 export default {
   props: ['title', 'icon'],
+  components: {
+    ModalChoice
+  },
   data() {
     return {
       isSelected: false,
       isActive: false,
+      isModalOpen: false,
+      modalOption: '',
     }
   },
   methods: {
@@ -25,6 +32,14 @@ export default {
     },
     toggleMenu() {
       this.isSelected = !this.isSelected
+    },
+    chooseSong() {
+      this.modalOption = 'song'
+      this.isModalOpen = true
+    },
+    chooseArtist() {
+      this.modalOption = 'artist'
+      this.isModalOpen = true
     },
   },
 }
@@ -87,6 +102,11 @@ export default {
     margin-top: -3px;
     color: black;
     padding: 20px;
+    > button.option {
+      background: unset;
+      border: unset;
+      cursor: pointer;
+    }
   }
 }
 </style>

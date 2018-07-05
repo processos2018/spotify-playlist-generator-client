@@ -31,8 +31,10 @@ export default {
   },
   mounted() {
     let name = this.$route.params.name
-    let url = 'http://fabrica-de-playlists-service.herokuapp.com/recommendation?'
-    let params = "genre=classical&name=testando-classica"
+    // let url = 'http://fabrica-de-playlists-service.herokuapp.com/recommendation?'
+    // let params = 'genre=classical&name=testando-classica'
+    let url = '/static/playlist-classical.json'
+    let params = ''
     axios.get(url+params)
       .then( response => response.data )
       .then( playlist => this.playlist = playlist )
@@ -56,6 +58,8 @@ export default {
 
 <style lang="scss">
 #playlist {
+  background-color: $black;
+  color: white;
   padding: 60px 20px;
   .title {
     display: flex;
